@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>app elotec - to do list</title>
+</head>
+<body>
+
+    <div class="container" id="container">
+
+            
+     <div class="form">
+        <img src="instituto elotec.jpeg" alt="">
+       <label for="task"></label>
+    <input type="text" id="input" placeholder="write a task...">
+    <button onclick="createTask()">Add</button>
+    <p class="mensage" id="mensage"> </p>
+     </div>
+
+     <ul class="main" style="list-style: none;">
+
+     </ul>
+
+     <section class="filtro">
+
+        <option value="todos">todos</option>
+        <option value="concluidos">concluidos</option>
+        <option value="pendentes">pendentes</option>
+     </section>
+    
+    </div>
+
+    <style>
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+       .container {
+        background-color: white;
+        border-radius: 5px;
+        border: 2px solid rgb(189, 187, 187);
+        width: 400px;
+        padding: 5px;
+        height: 400px;
+       }
+
+       .form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+       }
+       
+       img{
+        width: 150px;
+       }
+
+       .main{
+        background-color: darkgrey;
+        color: black;
+        border: 2px solid darkgrey;
+       }
+    </style>
+
+    <script>
+
+function createTask() {
+    const input = document.getElementById("input");
+    const mensage = document.getElementById("mensage");
+    const value = input.value.trim();
+
+    if(input == ''){
+        mensage.textContent = "no one task to send";
+        mensage.style.color = "red"; 
+    }else{
+        const button = document.createElement("button");
+    }
+
+}
+
+    </script>
+
+</body>
+</html>
