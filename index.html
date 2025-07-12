@@ -18,15 +18,17 @@
     <p class="mensage" id="mensage"> </p>
      </div>
 
-     <ul class="main" style="list-style: none;">
+     <ul class="main" style="list-style: none;" id="main">
 
      </ul>
 
      <section class="filtro">
-
-        <option value="todos">todos</option>
+      <select name="" id="">
+         <option value="todos">todos</option>
         <option value="concluidos">concluidos</option>
         <option value="pendentes">pendentes</option>
+      </select>
+       
      </section>
     
     </div>
@@ -72,15 +74,51 @@ function createTask() {
     const input = document.getElementById("input");
     const mensage = document.getElementById("mensage");
     const value = input.value.trim();
+    const main = document.getElementById("main");
 
     if(input == ''){
         mensage.textContent = "no one task to send";
         mensage.style.color = "red"; 
     }else{
         const button = document.createElement("button");
+        button.innerHTML = "delete";
+
+        button.onclick= function () {
+            item.remove();
+        }
+
+        const item = document.createElement("li");
+        item.innerHTML = value;
+
+        item.append(button);
+        
+        main.append(item);
+
+        input.value = '';
+        mensage.textContent = '';
     }
 
 }
+
+function Task(status) {
+    const tasks = document.querySelectorAll("#main li");
+
+    Task.forEach(item => {
+        switch(status){
+            case "todas":
+                Task.style.display = "list-item";
+                break;
+            case "concluidas":
+                Task.style.display = Task.classList.contains("concluidas") ? "list-item" : "none";
+                break;
+            case "pendentes":
+                Task.style.display = Task.classList.contains("pendentes") ? "list-item" : "none";
+                break;
+        }
+    })
+}
+    
+
 
     </script>
 
